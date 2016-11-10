@@ -9,9 +9,8 @@
         <input type="text" class="form-control">
 
         <h4>Unidad académica:</h4>
-        <select id="cbxUA" class="form-control" style="width: 27%" runat="server">
-          
-        </select>
+        
+        <asp:DropDownList ID="cbxUA" runat="server" AutoPostBack="true"></asp:DropDownList>
         <div class="row">
             <div class="col-md-4">
                 <h4>Código:</h4>

@@ -13,13 +13,27 @@ namespace ProyectoVD
         ControladoraBDNumeral bdnumeral = new ControladoraBDNumeral();
         protected void Page_Load(object sender, EventArgs e)
         {
-            Cargar();
+            CargarCbxUA();
         }
 
-        public void Cargar()
+        public void CargarCbxUA()
         {
-            DataTable unidades = bdnumeral.selectUA();
-        
+            DataTable unidades = bdnumeral.selectUA();//se hace el llamado a la controladora de BD
+            
+            cbxUA.Items.Add("Seleccionar");//si incerta el valor predeterminado "Seleccionar" al Cbx
+
+            if (unidades.Rows.Count > 0)//se agregan cada una de las unidades académecias. 
+            {
+                foreach (DataRow fila in unidades.Rows)
+                {
+                    cbxUA.Items.Add(fila[1].ToString());
+                }
+            }
+        }
+
+        public void InsertarNumeral()
+        {
+
         }
     }
 }

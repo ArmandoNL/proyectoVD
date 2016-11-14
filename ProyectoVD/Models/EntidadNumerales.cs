@@ -16,7 +16,12 @@ namespace ProyectoVD
 
         public EntidadNumerales(Object[] datos)
         {
-
+            concurso = datos[0].ToString();
+            idUA = int.Parse(datos[1].ToString());
+            codigo = datos[2].ToString();
+            jornada = float.Parse(datos[3].ToString());
+            estado = datos[4].ToString();
+            descripcion = datos[5].ToString();
         }
 
         public String Concurso

@@ -5,31 +5,35 @@
     <h1>Agregar numeral:</h1>
     <div class="jumbotron">
 
-        <h4>Número de concurso:</h4>
-        <input type="text" class="form-control">
+        <h4>Codigo de concurso:</h4>
+        <input type="text" id="txtConcurso" class="form-control" runat="server">
 
         <h4>Unidad académica:</h4>
-        
-        <asp:DropDownList ID="cbxUA" runat="server" AutoPostBack="true"></asp:DropDownList>
+
+        <asp:DropDownList ID="cbxUA" runat="server" AutoPostBack="true" CssClass="form-control" Width="30%"></asp:DropDownList>
         <div class="row">
             <div class="col-md-4">
                 <h4>Código:</h4>
-                <input type="text" class="form-control">
+                <input type="text" id="txtCodNum" class="form-control" runat="server">
             </div>
             <div class="col-md-4">
                 <h4>Jornada:</h4>
-                <input type="text" class="form-control" placeholder="Inserte una fracción">
+                <input type="text" id="txtJornada" class="form-control" runat="server" placeholder="Inserte una fracción">
             </div>
             <div class="col-md-4">
                 <h4>Estado:</h4>
-                <select class="form-control">
+                <select class="form-control" id="cbxEstado" runat="server">
                     <option>Adjudicado</option>
                     <option>Desierto</option>
                 </select>
             </div>
         </div>
         <h4>Descripción</h4>
-        <textarea class="form-control" rows="3"></textarea>
+        <textarea id="txaDescripcion" class="form-control" rows="3" runat="server"></textarea>
+
+        <input type="submit" class="btn btn-success" id="btnAceptar" value="Aceptar" runat="server" onserverclick="insertarNumeral" />
+        <input type="button" class="btn btn-danger" id="Button1" value="Cancelar" runat="server" />
     </div>
+
 
 </asp:Content>

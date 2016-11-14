@@ -15,5 +15,11 @@ namespace ProyectoVD
             DataTable resp = adaptador.consultar(consulta);
             return resp;
         }
+
+        public void insertarNumeral(EntidadNumerales datos)
+        {
+            String consulta = "insert into Numerales(Codigo, Jornada, Estado, Descripcion, CodConcurso, IdUA) values('" + datos.Codigo + "'," + datos.Jornada + ",'" + datos.Estado + "','" + datos.Descripcion + "','" + datos.Concurso + "'," + datos.IdUA + ");";
+            adaptador.insertar(consulta);
+        }
     }
 }

@@ -23,6 +23,7 @@
             <div class="col-md-4">
                 <h4>Estado:</h4>
                 <select class="form-control" id="cbxEstado" runat="server">
+                    <option>Pendiente</option>
                     <option>Adjudicado</option>
                     <option>Desierto</option>
                 </select>
@@ -31,7 +32,7 @@
         <h4>Descripción</h4>
         <textarea id="txaDescripcion" class="form-control" rows="3" runat="server"></textarea>
 
-        <input type="submit" class="btn btn-success" id="btnAceptar" value="Aceptar" runat="server" onserverclick="insertarNumeral" />
+        <input type="submit" class="btn btn-success" id="btnAceptar" value="Aceptar" runat="server" onserverclick="clickAceptar" />
         <input type="button" class="btn btn-danger" id="Button1" value="Cancelar" runat="server" />
     </div>
 

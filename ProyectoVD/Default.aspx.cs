@@ -13,5 +13,10 @@ namespace ProyectoVD
         {
 
         }
+
+        public void clickBuscar(object sender, EventArgs e)
+        {
+
+        }
     }
 }

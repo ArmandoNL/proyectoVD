@@ -33,7 +33,26 @@ namespace ProyectoVD
             }
         }
 
-        public void insertarNumeral(object sender, EventArgs e)
+        public void clickAceptar(object sender, EventArgs e)
+        {
+            int estado = 1;
+            switch (estado)
+            {
+                case 2:
+                    modificarNumeral();
+                    break;
+                case 3:
+                    consultarNumeral();
+                    break;
+                case 4:
+                    eliminarNumeral();
+                    break;
+                default:
+                    insertarNumeral();
+                    break;
+            }
+        }
+        public void insertarNumeral()
         {
             Object[] nuevoNumeral = new Object[6];
 
@@ -51,6 +70,21 @@ namespace ProyectoVD
 
             EntidadNumerales entidadNumerales = new EntidadNumerales(nuevoNumeral);
             controladoraBDnumeral.insertarNumeral(entidadNumerales);
+        }
+
+        public void modificarNumeral()
+        {
+
+        }
+
+        public void consultarNumeral()
+        {
+
+        }
+
+        public void eliminarNumeral()
+        {
+
         }
     }
 }

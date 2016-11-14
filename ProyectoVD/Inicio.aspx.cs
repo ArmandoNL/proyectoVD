@@ -7,8 +7,9 @@ using System.Web.UI.WebControls;
 
 namespace ProyectoVD
 {
-    public partial class _Default : Page
+    public partial class Inicio : Page
     {
+        public static String concursoSeleccionado;
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -16,7 +17,8 @@ namespace ProyectoVD
 
         public void clickBuscar(object sender, EventArgs e)
         {
-
+            concursoSeleccionado = txtBuscar.Value;
+            Response.Redirect("Vistas/ConsultarNumerales");
         }
     }
 }

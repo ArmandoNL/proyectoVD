@@ -10,7 +10,7 @@
 namespace ProyectoVD {
     
     
-    public partial class _Default {
+    public partial class Inicio {
         
         /// <summary>
         /// txtBuscar control.

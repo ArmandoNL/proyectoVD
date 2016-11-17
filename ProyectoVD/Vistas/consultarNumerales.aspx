@@ -32,14 +32,14 @@
             <Columns>
                 <asp:TemplateField>
                     <ItemTemplate>
-                        <asp:LinkButton ID="btnModificar" ToolTip="Modificar" runat="server" class="btn btn-default"><i class="glyphicon glyphicon-pencil"></i></asp:LinkButton>
+                        <asp:LinkButton ID="btnModificar" ToolTip="Modificar" runat="server" OnClick="clickModificar" class="btn btn-default"><i class="glyphicon glyphicon-pencil"></i></asp:LinkButton>
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>
             <Columns>
                 <asp:TemplateField>
                     <ItemTemplate>
-                        <asp:LinkButton ID="btnEliminar" ToolTip="Eliminar" runat="server" class="btn btn-default"><i class="glyphicon glyphicon-trash"></i></asp:LinkButton>
+                        <asp:LinkButton ID="btnEliminar" ToolTip="Eliminar" runat="server" OnClick="clickEliminar" class="btn btn-default"><i class="glyphicon glyphicon-trash"></i></asp:LinkButton>
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>

@@ -12,6 +12,8 @@ namespace ProyectoVD
     {
         ControladoraBDNumeral controladoraBD = new ControladoraBDNumeral();
         static DataTable numeralesConsultados;
+        public static int idNumeralConsultado;
+        public static int estado;
         protected void Page_Load(object sender, EventArgs e)
         {
             cargarNumerales(Inicio.concursoSeleccionado);
@@ -28,12 +30,34 @@ namespace ProyectoVD
 
         protected void clickConsultar(object sender, EventArgs e)
         {
+            estado = 1;
             numeralesConsultados = controladoraBD.buscarNumerales(txtBuscar.Value);
             LinkButton btn = (LinkButton)sender;
             GridViewRow row = (GridViewRow)btn.NamingContainer;
             int i = Convert.ToInt32(row.RowIndex);
-            int id = int.Parse(numeralesConsultados.Rows[i][0].ToString());
-            //Response.Redirect("FormServicios");
+            idNumeralConsultado = int.Parse(numeralesConsultados.Rows[i][0].ToString());
+            Response.Redirect("Numerales");
+        }
+
+        protected void clickModificar(object sender, EventArgs e)
+        {
+            estado = 2;
+            numeralesConsultados = controladoraBD.buscarNumerales(txtBuscar.Value);
+            LinkButton btn = (LinkButton)sender;
+            GridViewRow row = (GridViewRow)btn.NamingContainer;
+            int i = Convert.ToInt32(row.RowIndex);
+            idNumeralConsultado = int.Parse(numeralesConsultados.Rows[i][0].ToString());
+            Response.Redirect("Numerales");
+        }
+
+        protected void clickEliminar(object sender, EventArgs e)
+        {
+            numeralesConsultados = controladoraBD.buscarNumerales(txtBuscar.Value);
+            LinkButton btn = (LinkButton)sender;
+            GridViewRow row = (GridViewRow)btn.NamingContainer;
+            int i = Convert.ToInt32(row.RowIndex);
+            idNumeralConsultado = int.Parse(numeralesConsultados.Rows[i][0].ToString());
+            
         }
     }
 }

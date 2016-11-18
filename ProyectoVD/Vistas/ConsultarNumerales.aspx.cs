@@ -13,7 +13,7 @@ namespace ProyectoVD
         ControladoraBDNumeral controladoraBD = new ControladoraBDNumeral();
         static DataTable numeralesConsultados;
         public static int idNumeralConsultado;
-        public static int estado;
+        public static int estado = 1;
         protected void Page_Load(object sender, EventArgs e)
         {
             cargarNumerales(Inicio.concursoSeleccionado);

@@ -50,9 +50,15 @@ namespace ProyectoVD
                     txtCodNum.Disabled = true;
                     txaDescripcion.Disabled = true;
                     cbxEstado.Disabled = true;
+                    btnInsertar.Disabled = true;
+                    btnModificar.Disabled = true;
+                    btnEliminar.Disabled = true;
                     break;
                 case 2://modificar un numeral
                     consultarNumeral();
+                    btnInsertar.Disabled = false;
+                    btnModificar.Disabled = false;
+                    btnEliminar.Disabled = true;
                     break;
             }
         }
@@ -107,7 +113,7 @@ namespace ProyectoVD
         public void modificarNumeral()
         {
             Object[] nuevoNumeral = new Object[6];
-
+            
             nuevoNumeral[0] = txtConcurso.Value;
             nuevoNumeral[1] = unidades.Rows[cbxUA.SelectedIndex - 1][0];
             nuevoNumeral[2] = txtCodNum.Value;

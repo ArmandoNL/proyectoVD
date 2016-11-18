@@ -11,7 +11,7 @@ namespace ProyectoVD
     public partial class Numerales : System.Web.UI.Page
     {
         ControladoraBDNumeral controladoraBDnumeral = new ControladoraBDNumeral();
-         
+
         DataTable unidades;
         static int estado;
         static int idNumeralConsultado;
@@ -26,7 +26,7 @@ namespace ProyectoVD
         public void CargarCbxUA()
         {
             unidades = controladoraBDnumeral.selectUA();//se hace el llamado a la controladora de BD
-            
+
             cbxUA.Items.Add("Seleccionar");//si incerta el valor predeterminado "Seleccionar" al Cbx
 
             if (unidades.Rows.Count > 0)//se agregan cada una de las unidades académecias. 
@@ -50,15 +50,18 @@ namespace ProyectoVD
                     txtCodNum.Disabled = true;
                     txaDescripcion.Disabled = true;
                     cbxEstado.Disabled = true;
-                    btnInsertar.Disabled = true;
-                    btnModificar.Disabled = true;
-                    btnEliminar.Disabled = true;
+                    btnInsertar.Disabled = false;
+                    btnModificar.Disabled = false;
+                    btnEliminar.Disabled = false;
                     break;
                 case 2://modificar un numeral
                     consultarNumeral();
-                    btnInsertar.Disabled = false;
-                    btnModificar.Disabled = false;
-                    btnEliminar.Disabled = true;
+                    btnInsertar.Disabled = true;
+                    btnModificar.Disabled = true;
+                    btnEliminar.Disabled = false;
+                    break;
+                case 3://insertar un numeral
+                    
                     break;
             }
         }
@@ -66,7 +69,7 @@ namespace ProyectoVD
         protected void consultarNumeral()
         {
             DataTable numeral = controladoraBDnumeral.consultarNumeral(idNumeralConsultado);
-
+            txtprueba.Text = "123";
             txtConcurso.Value = numeral.Rows[0][5].ToString();
             cbxUA.SelectedValue = numeral.Rows[0][1].ToString();
             txtJornada.Value = numeral.Rows[0][3].ToString();
@@ -95,11 +98,11 @@ namespace ProyectoVD
             Object[] nuevoNumeral = new Object[6];
 
             nuevoNumeral[0] = txtConcurso.Value;
-            nuevoNumeral[1] = unidades.Rows[cbxUA.SelectedIndex-1][0];
+            nuevoNumeral[1] = unidades.Rows[cbxUA.SelectedIndex - 1][0];
             nuevoNumeral[2] = txtCodNum.Value;
 
             char[] delimitador = { '/' };
-            String [] factores = new String[2];
+            String[] factores = new String[2];
             factores = txtJornada.Value.Split(delimitador);
             float jornada = float.Parse(factores[0]) / float.Parse(factores[1]);
             nuevoNumeral[3] = jornada;
@@ -113,7 +116,7 @@ namespace ProyectoVD
         public void modificarNumeral()
         {
             Object[] nuevoNumeral = new Object[6];
-            
+            String prueba = txtprueba.Text;
             nuevoNumeral[0] = txtConcurso.Value;
             nuevoNumeral[1] = unidades.Rows[cbxUA.SelectedIndex - 1][0];
             nuevoNumeral[2] = txtCodNum.Value;
@@ -129,7 +132,22 @@ namespace ProyectoVD
             EntidadNumerales entidadNumerales = new EntidadNumerales(nuevoNumeral);
             controladoraBDnumeral.modificarNumerales(entidadNumerales, idNumeralConsultado);
         }
-                public void eliminarNumeral()
+        public void eliminarNumeral()
+        {
+
+        }
+
+        public void clickInsertar(object sender, EventArgs e)
+        {
+
+        }
+
+        public void clickModificar(object sender, EventArgs e)
+        {
+
+        }
+
+        public void clickEliminar(object sender, EventArgs e)
         {
 
         }

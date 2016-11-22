@@ -15,7 +15,7 @@
                 Esta opción le permite insertar un nuevo numeral. 
             </p>
             <p>
-                <a class="btn btn-default" href="Vistas/Numerales.aspx">Insertar</a>
+                <input type="button" class="btn btn-default" id="btnInsertar" value="Insertar" runat="server" onserverclick="clickInsertar" />
             </p>
         </div>
         <div class="col-md-8">

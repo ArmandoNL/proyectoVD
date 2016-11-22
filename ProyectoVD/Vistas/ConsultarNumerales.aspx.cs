@@ -57,7 +57,7 @@ namespace ProyectoVD
             GridViewRow row = (GridViewRow)btn.NamingContainer;
             int i = Convert.ToInt32(row.RowIndex);
             idNumeralConsultado = int.Parse(numeralesConsultados.Rows[i][0].ToString());
-            
+            controladoraBD.eliminarNumeral(idNumeralConsultado);
         }
     }
 }

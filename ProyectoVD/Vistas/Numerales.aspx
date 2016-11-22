@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Numerales.aspx.cs" Inherits="ProyectoVD.Numerales" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+
         <ContentTemplate>
             <legend>
                 <h2>Numerales:</h2>
@@ -9,13 +9,13 @@
 
             <div class="row">
                 <div class="col-xs-6 col-md-4">
-                    <button type="button" id="btnInsertar" runat="server" class="form-control" style="background-color: forestgreen; color: white">Insertar</button>
+                    <button type="button" id="btnInsertar" runat="server" class="form-control" onserverclick="clickInsertar" style="background-color: forestgreen; color: white">Insertar</button>
                 </div>
                 <div class="col-xs-6 col-md-4">
-                    <button type="button" id="btnModificar" runat="server" class="form-control" style="background-color: forestgreen; color: white">Modificar</button>
+                    <button type="button" id="btnModificar" runat="server" class="form-control" onserverclick="clickModificar" style="background-color: forestgreen; color: white">Modificar</button>
                 </div>
                 <div class="col-xs-6 col-md-4">
-                    <button type="button" id="btnEliminar" runat="server" class="form-control" style="background-color: forestgreen; color: white">Eliminar</button>
+                    <button type="button" id="btnEliminar" runat="server" class="form-control" onserverclick="clickEliminar" style="background-color: forestgreen; color: white">Eliminar</button>
                 </div>
             </div>
 
@@ -24,7 +24,6 @@
                 <legend>
                     <h4>Codigo de concurso:</h4>
                 </legend>
-                <asp:TextBox ID="txtprueba" Columns="2" MaxLength="3" Text="1" runat="server"/>
                 <input type="text" id="txtConcurso" class="form-control" runat="server">
                 <button type="button" id="btnGuardarConcurso" runat="server" class="form-control" style="width: 27%">Guardar</button>
 
@@ -57,12 +56,11 @@
                     </div>
                 </div>
                 <h4>Descripción</h4>
-                <textarea id="txaDescripcion" class="form-control" rows="3" runat="server"></textarea>
+                <textarea id="txaDescripcion" class="form-control" rows="5" runat="server"></textarea>
 
                 <input type="submit" class="btn btn-success" id="btnAceptar" value="Aceptar" runat="server" onserverclick="clickAceptar" />
-                <input type="button" class="btn btn-danger" id="Button1" value="Cancelar" runat="server" />
+                <input type="button" class="btn btn-danger" id="Button1" value="Cancelar" runat="server" onserverclick="clickCancelar" />
             </div>
         </ContentTemplate>
-    </asp:UpdatePanel>
 
 </asp:Content>

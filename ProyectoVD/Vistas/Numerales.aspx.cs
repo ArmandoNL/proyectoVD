@@ -11,16 +11,31 @@ namespace ProyectoVD
     public partial class Numerales : System.Web.UI.Page
     {
         ControladoraBDNumeral controladoraBDnumeral = new ControladoraBDNumeral();
+        Inicio inicio = new Inicio();
 
-        DataTable unidades;
+        static DataTable unidades;
         static int estado;
         static int idNumeralConsultado;
         protected void Page_Load(object sender, EventArgs e)
         {
-            CargarCbxUA();
-            estado = consultarNumerales.estado;
-            idNumeralConsultado = consultarNumerales.idNumeralConsultado;
-            prepararInterfaz();
+            if (!IsPostBack)
+            {
+                CargarCbxUA();
+
+                if (Inicio.estado != 0)
+                {
+                    estado = 3;
+                    inicio.cambiarEstado();
+                }
+                else
+                {
+                    estado = consultarNumerales.estado;
+                }
+
+
+                idNumeralConsultado = consultarNumerales.idNumeralConsultado;
+                prepararInterfaz();
+            }
         }
 
         public void CargarCbxUA()
@@ -61,7 +76,9 @@ namespace ProyectoVD
                     btnEliminar.Disabled = false;
                     break;
                 case 3://insertar un numeral
-                    
+                    btnEliminar.Disabled = true;
+                    btnInsertar.Disabled = true;
+                    btnModificar.Disabled = true;
                     break;
             }
         }
@@ -69,7 +86,6 @@ namespace ProyectoVD
         protected void consultarNumeral()
         {
             DataTable numeral = controladoraBDnumeral.consultarNumeral(idNumeralConsultado);
-            txtprueba.Text = "123";
             txtConcurso.Value = numeral.Rows[0][5].ToString();
             cbxUA.SelectedValue = numeral.Rows[0][1].ToString();
             txtJornada.Value = numeral.Rows[0][3].ToString();
@@ -93,6 +109,12 @@ namespace ProyectoVD
                     break;
             }
         }
+
+        public void clickCancelar(object sender, EventArgs e)
+        {
+            Response.Redirect("/Inicio");
+        }
+
         public void insertarNumeral()
         {
             Object[] nuevoNumeral = new Object[6];
@@ -116,7 +138,6 @@ namespace ProyectoVD
         public void modificarNumeral()
         {
             Object[] nuevoNumeral = new Object[6];
-            String prueba = txtprueba.Text;
             nuevoNumeral[0] = txtConcurso.Value;
             nuevoNumeral[1] = unidades.Rows[cbxUA.SelectedIndex - 1][0];
             nuevoNumeral[2] = txtCodNum.Value;
@@ -132,19 +153,22 @@ namespace ProyectoVD
             EntidadNumerales entidadNumerales = new EntidadNumerales(nuevoNumeral);
             controladoraBDnumeral.modificarNumerales(entidadNumerales, idNumeralConsultado);
         }
+
         public void eliminarNumeral()
         {
-
+            controladoraBDnumeral.eliminarNumeral(idNumeralConsultado);
         }
 
         public void clickInsertar(object sender, EventArgs e)
         {
-
+            estado = 3;
+            prepararInterfaz();
         }
 
         public void clickModificar(object sender, EventArgs e)
         {
-
+            estado = 2;
+            prepararInterfaz();
         }
 
         public void clickEliminar(object sender, EventArgs e)

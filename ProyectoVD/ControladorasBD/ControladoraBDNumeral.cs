@@ -39,8 +39,14 @@ namespace ProyectoVD
 
         public void modificarNumerales(EntidadNumerales numeral, int idConsultado)
         {
-            String consulta = "update Numerales set Codigo='"+ numeral.Codigo + "',Jornada= " + numeral.Jornada + ",Estado='" + numeral.Estado + "',Descripcion='" + numeral.Descripcion + "',CodConcurso='" + numeral.Concurso + "',IdUA=" + numeral.IdUA + "where id=" + idConsultado + ";";
+            String consulta = "update Numerales set Codigo='"+ numeral.Codigo + "',Jornada= " + numeral.Jornada + ",Estado='" + numeral.Estado + "',Descripcion='" + numeral.Descripcion + "',CodConcurso='" + numeral.Concurso + "',IdUA=" + numeral.IdUA + " where id=" + idConsultado + ";";
             adaptador.insertar(consulta);
         }
+
+        public void eliminarNumeral(int id)
+        {
+            String consulta = "delete from Numerales where Id =" + id + ";";
+            adaptador.insertar(consulta);
+        } 
     }
 }

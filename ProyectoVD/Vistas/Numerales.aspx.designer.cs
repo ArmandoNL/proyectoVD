@@ -13,15 +13,6 @@ namespace ProyectoVD {
     public partial class Numerales {
         
         /// <summary>
-        /// UpdatePanel1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
-        
-        /// <summary>
         /// btnInsertar control.
         /// </summary>
         /// <remarks>
@@ -47,15 +38,6 @@ namespace ProyectoVD {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlButton btnEliminar;
-        
-        /// <summary>
-        /// txtprueba control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtprueba;
         
         /// <summary>
         /// txtConcurso control.

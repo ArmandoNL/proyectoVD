@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
-        <ContentTemplate>
+        <fieldset style="margin-top:2%">
             <legend>
                 <h2>Numerales:</h2>
             </legend>
@@ -20,7 +20,7 @@
             </div>
 
             <div class="jumbotron well bs-component">
-
+            
                 <legend>
                     <h4>Codigo de concurso:</h4>
                 </legend>
@@ -61,6 +61,6 @@
                 <input type="submit" class="btn btn-success" id="btnAceptar" value="Aceptar" runat="server" onserverclick="clickAceptar" />
                 <input type="button" class="btn btn-danger" id="Button1" value="Cancelar" runat="server" onserverclick="clickCancelar" />
             </div>
-        </ContentTemplate>
+        </fieldset>
 
 </asp:Content>

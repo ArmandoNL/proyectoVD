@@ -17,7 +17,7 @@
     </div>
     
        
-        <asp:GridView ID="grvNumerales" runat="server" AllowPaging="true" AllowSorting="true" class="form-control">
+        <asp:GridView ID="grvNumerales" runat="server" AllowPaging="true" AllowSorting="true" style="font:16px arial;color:grey;border-color:gainsboro;margin-top:2%; margin-bottom:2%">
 
             <SelectedRowStyle BackColor="#7BC143"
                 ForeColor="Black"

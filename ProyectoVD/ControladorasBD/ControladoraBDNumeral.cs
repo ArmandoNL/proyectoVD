@@ -25,7 +25,7 @@ namespace ProyectoVD
 
         public DataTable buscarNumerales(String concurso)
         {
-            String consulta = "select n.id,Codigo as 'Numeral', u.Nombre as 'Unidad Académica',Descripcion,Jornada,Estado from Numerales n join UnidadAcademica u on n.IdUA = u.id where CodConcurso='" + concurso + "'order by Codigo;";
+            String consulta = "select n.id,Codigo as 'Numeral', u.Nombre as 'Unidad Académica',Descripcion,Jornada,Estado from Numerales n join UnidadAcademica u on n.IdUA = u.id where CodConcurso='" + concurso + "' order by Codigo;";
             DataTable resp = adaptador.consultar(consulta);
             return resp;
         }
@@ -48,5 +48,12 @@ namespace ProyectoVD
             String consulta = "delete from Numerales where Id =" + id + ";";
             adaptador.insertar(consulta);
         } 
+
+        public DataTable numeralesDisponibles(String concurso)//trae los Numerales que están en espera de asignarse para poner a concursar personas.
+        {
+            String consulta = "select n.Id,n.Codigo,u.Nombre,n.Descripcion from Numerales n join UnidadAcademica u on n.IdUA = u.Id where n.Estado='En Espera' and n.CodConcurso='" + concurso + "' order by Codigo;";
+            DataTable numerales = adaptador.consultar(consulta);
+            return numerales;
+        }
     }
 }

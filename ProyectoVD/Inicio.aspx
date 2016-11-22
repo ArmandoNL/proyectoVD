@@ -33,4 +33,29 @@
         </div>
     </div>
 
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Insertar Persona</h2>
+            <p>
+                Esta opción le permite insertar una persona nueva y asignarle los numerales en los que está concursando. 
+            </p>
+            <p>
+                <input type="button" class="btn btn-default" id="Button1" value="Insertar" runat="server" onserverclick="clickInsertar" />
+            </p>
+        </div>
+        <div class="col-md-8">
+            <h2>Modificar o Eliminar</h2>
+            <p>
+                Escriba el concurso al que pertenece el numeral que desea modificar o eliminar y seleccione buscar.
+            </p>
+            <p>
+                <input id="Text1" type="text" class="form-control" runat="server" required="required" title="Por favor, inserte un concurso." />
+            </p>
+            <p>
+                <input type="submit" class="btn btn-default" id="Submit1" value="Buscar" runat="server" onserverclick="clickBuscar" />
+
+            </p>
+        </div>
+    </div>
+
 </asp:Content>

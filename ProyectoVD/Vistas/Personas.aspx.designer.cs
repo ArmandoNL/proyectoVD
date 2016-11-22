@@ -10,7 +10,7 @@
 namespace ProyectoVD {
     
     
-    public partial class Inicio {
+    public partial class Personas {
         
         /// <summary>
         /// btnInsertar control.
@@ -19,25 +19,70 @@ namespace ProyectoVD {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputButton btnInsertar;
+        protected global::System.Web.UI.HtmlControls.HtmlButton btnInsertar;
         
         /// <summary>
-        /// txtBuscar control.
+        /// btnModificar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtBuscar;
+        protected global::System.Web.UI.HtmlControls.HtmlButton btnModificar;
         
         /// <summary>
-        /// btnBuscar control.
+        /// btnEliminar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputSubmit btnBuscar;
+        protected global::System.Web.UI.HtmlControls.HtmlButton btnEliminar;
+        
+        /// <summary>
+        /// txaDescripcion control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea txaDescripcion;
+        
+        /// <summary>
+        /// txtConcurso control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtConcurso;
+        
+        /// <summary>
+        /// btnBuscarNumerales control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton btnBuscarNumerales;
+        
+        /// <summary>
+        /// grvNumerales control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grvNumerales;
+        
+        /// <summary>
+        /// btnAceptar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputSubmit btnAceptar;
         
         /// <summary>
         /// Button1 control.
@@ -47,23 +92,5 @@ namespace ProyectoVD {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputButton Button1;
-        
-        /// <summary>
-        /// Text1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Text1;
-        
-        /// <summary>
-        /// Submit1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputSubmit Submit1;
     }
 }

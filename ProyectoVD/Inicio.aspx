@@ -15,7 +15,7 @@
                 Esta opción le permite insertar un nuevo numeral. 
             </p>
             <p>
-                <input type="button" class="btn btn-default" id="btnInsertar" value="Insertar" runat="server" onserverclick="clickInsertar" />
+                <input type="button" class="btn btn-default" id="btnInsertar" value="Insertar" runat="server" onserverclick="clickInsertarNumeral" />
             </p>
         </div>
         <div class="col-md-8">
@@ -27,7 +27,7 @@
                 <input id="txtBuscar" type="text" class="form-control" runat="server" required="required" title="Por favor, inserte un concurso." />
             </p>
             <p>
-                <input type="submit" class="btn btn-default" id="btnBuscar" value="Buscar" runat="server" onserverclick="clickBuscar" />
+                <input type="submit" class="btn btn-default" id="btnBuscar" value="Buscar" runat="server" onserverclick="clickBuscarNumeral" />
 
             </p>
         </div>
@@ -40,19 +40,22 @@
                 Esta opción le permite insertar una persona nueva y asignarle los numerales en los que está concursando. 
             </p>
             <p>
-                <input type="button" class="btn btn-default" id="Button1" value="Insertar" runat="server" onserverclick="clickInsertar" />
+                <input type="button" class="btn btn-default" id="btnInsertarPersona" value="Insertar" runat="server" onserverclick="clickInsertarPersona" />
             </p>
         </div>
         <div class="col-md-8">
             <h2>Modificar o Eliminar</h2>
             <p>
-                Escriba el concurso al que pertenece el numeral que desea modificar o eliminar y seleccione buscar.
+                Puede realizar la búsqueda utilizando alguno de los siquientes criterios, solo seleccione uno e introduzca la palabra a buscar.
             </p>
+            <asp:RadioButton id="rdbConcurso" Text="Concurso" Checked="True" GroupName="RadioGroup1" runat="server" />
+            <asp:RadioButton id="rdbCedula" Text="Cédula" Checked="false" GroupName="RadioGroup1" runat="server" />
+            <asp:RadioButton id="rdbNombre" Text="Nombre" Checked="false" GroupName="RadioGroup1" runat="server" />
             <p>
                 <input id="Text1" type="text" class="form-control" runat="server" required="required" title="Por favor, inserte un concurso." />
             </p>
             <p>
-                <input type="submit" class="btn btn-default" id="Submit1" value="Buscar" runat="server" onserverclick="clickBuscar" />
+                <input type="submit" class="btn btn-default" id="btnBuscarPersona" value="Buscar" runat="server" onserverclick="clickBuscarPersona" />
 
             </p>
         </div>

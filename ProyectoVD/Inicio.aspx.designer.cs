@@ -40,13 +40,40 @@ namespace ProyectoVD {
         protected global::System.Web.UI.HtmlControls.HtmlInputSubmit btnBuscar;
         
         /// <summary>
-        /// Button1 control.
+        /// btnInsertarPersona control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputButton Button1;
+        protected global::System.Web.UI.HtmlControls.HtmlInputButton btnInsertarPersona;
+        
+        /// <summary>
+        /// rdbConcurso control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton rdbConcurso;
+        
+        /// <summary>
+        /// rdbCedula control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton rdbCedula;
+        
+        /// <summary>
+        /// rdbNombre control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton rdbNombre;
         
         /// <summary>
         /// Text1 control.
@@ -58,12 +85,12 @@ namespace ProyectoVD {
         protected global::System.Web.UI.HtmlControls.HtmlInputText Text1;
         
         /// <summary>
-        /// Submit1 control.
+        /// btnBuscarPersona control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputSubmit Submit1;
+        protected global::System.Web.UI.HtmlControls.HtmlInputSubmit btnBuscarPersona;
     }
 }

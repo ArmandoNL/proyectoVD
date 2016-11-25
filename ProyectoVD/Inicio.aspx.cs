@@ -16,15 +16,26 @@ namespace ProyectoVD
 
         }
 
-        public void clickBuscar(object sender, EventArgs e)
+        public void clickBuscarNumeral(object sender, EventArgs e)
         {
             concursoSeleccionado = txtBuscar.Value;
             Response.Redirect("Vistas/ConsultarNumerales");
         }
-        public void clickInsertar(object sender, EventArgs e)
+        public void clickInsertarNumeral(object sender, EventArgs e)
         {
             estado = 3;
             Response.Redirect("Vistas/Numerales");
+        }
+
+        public void clickBuscarPersona(object sender, EventArgs e)
+        {
+            concursoSeleccionado = txtBuscar.Value;
+            Response.Redirect("Vistas/ConsultarNumerales");
+        }
+        public void clickInsertarPersona(object sender, EventArgs e)
+        {
+            estado = 3;
+            Response.Redirect("Vistas/Personas");
         }
 
         public void cambiarEstado()

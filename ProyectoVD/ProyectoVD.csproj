@@ -170,6 +170,7 @@
     <Content Include="Account\ResetPasswordConfirmation.aspx" />
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
+    <Content Include="Vistas\ConsultarPersonas.aspx" />
     <Content Include="Vistas\Personas.aspx" />
     <Content Include="Vistas\ConsultarNumerales.aspx" />
     <Content Include="Contact.aspx" />
@@ -335,6 +336,13 @@
     </Compile>
     <Compile Include="Account\VerifyPhoneNumber.aspx.designer.cs">
       <DependentUpon>VerifyPhoneNumber.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\ConsultarPersonas.aspx.cs">
+      <DependentUpon>ConsultarPersonas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\ConsultarPersonas.aspx.designer.cs">
+      <DependentUpon>ConsultarPersonas.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vistas\Personas.aspx.cs">
       <DependentUpon>Personas.aspx</DependentUpon>

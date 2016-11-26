@@ -49,33 +49,6 @@ namespace ProyectoVD {
         protected global::System.Web.UI.HtmlControls.HtmlTextArea txaDescripcion;
         
         /// <summary>
-        /// txtConcurso control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtConcurso;
-        
-        /// <summary>
-        /// btnBuscarNumerales control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton btnBuscarNumerales;
-        
-        /// <summary>
-        /// grvNumerales control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grvNumerales;
-        
-        /// <summary>
         /// btnAceptar control.
         /// </summary>
         /// <remarks>

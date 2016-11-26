@@ -20,13 +20,7 @@ namespace ProyectoVD
         }
 
 
-        protected void cargarGrid(String concurso)
-        {
-            DataTable numeralesConsultados = controladora.numeralesDisponibles(concurso);
-            numeralesConsultados.Columns.Remove("id");
-            grvNumerales.DataSource = numeralesConsultados;
-            grvNumerales.DataBind();
-        }
+        
 
         public void clickAceptar(object sender, EventArgs e)
         {
@@ -57,7 +51,7 @@ namespace ProyectoVD
 
         public void clickModificar(object sender, EventArgs e)
         {
-          
+           
         }
 
         public void clickEliminar(object sender, EventArgs e)
@@ -65,19 +59,8 @@ namespace ProyectoVD
 
         }
 
-        public void clickConcursar(object sender, EventArgs e)
-        {
-            
-        }
+        
 
-        public void clickAdjudicar(object sender, EventArgs e)
-        {
-
-        }
-
-        public void clickBuscarNumerales(object sender, EventArgs e)
-        {
-            cargarGrid(txtConcurso.Value);
-        }
+        
     }
 }

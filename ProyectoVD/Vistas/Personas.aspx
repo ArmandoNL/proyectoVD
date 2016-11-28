@@ -27,11 +27,15 @@
                         <div class="row">
                             <div class="col-md-4">
                                 <h4>Cédula:</h4>
-                                <input type="text" class="form-control">
+                                <input type="text" id="txtCedula" class="form-control" runat="server">
+                            </div>
+                            <div class="col-md-4">
+                                <h4>Nombre:</h4>
+                                <input type="text" id="txtNombre" class="form-control" runat="server">
                             </div>
                             <div class="col-md-4">
                                 <h4>Grado académico:</h4>
-                                <select class="form-control">
+                                <select class="form-control" id="cbxGrado" runat="server">
                                     <option>Licenciatura</option>
                                     <option>Maestría académica</option>
                                     <option>Maestría profesional</option>
@@ -50,23 +54,31 @@
                         <div class="row">
                             <div class="col-md-4">
                                 <h4>Teléfonos:</h4>
-                                <input id="txttelefonos" type="text" class="form-control">
+                                <input id="txtTelefonos" type="text" class="form-control" runat="server">
                             </div>
                             <div class="col-md-4">
                                 <h4>Correo:</h4>
-                                <input type="text" class="form-control">
+                                <input type="text" id="txtCorreo" class="form-control" runat="server">
                             </div>
                             <div class="col-md-4">
                                 <h4>Dirección física:</h4>
-                                <input type="text" class="form-control">
+                                <input type="text" id="txtDireccion" class="form-control" runat="server">
                             </div>
                         </div>
                     </fieldset>
-
-
-                    <input type="submit" class="btn btn-success" id="btnAceptar" value="Aceptar" runat="server" onserverclick="clickAceptar" />
-                    <input type="button" class="btn btn-danger" id="Button1" value="Cancelar" runat="server" onserverclick="clickCancelar" />
                 </div>
+
+                <div class="row">
+                        <div class="col-xs-6 col-md-4">
+                            <button type="button" id="btnGuardar" runat="server" onserverclick="clickGuardar" class="form-control" style="background-color: forestgreen; color: white">Guardar</button>
+                        </div>
+                        <div class="col-xs-6 col-md-4">
+                            <button type="button" id="btnGuardarAsociar" runat="server" class="form-control" style="background-color: forestgreen; color: white">Guardar y Asociar Numerales</button>
+                        </div>
+                        <div class="col-xs-6 col-md-4">
+                            <button type="button" id="btnCancelar" runat="server" class="form-control" onserverclick="clickCancelar" style="background-color: red; color: white">Cancelar</button>
+                        </div>
+                    </div>
             </fieldset>
         </ContentTemplate>
     </asp:UpdatePanel>

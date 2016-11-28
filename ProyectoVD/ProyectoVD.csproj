@@ -338,6 +338,8 @@
     <Compile Include="Account\VerifyPhoneNumber.aspx.designer.cs">
       <DependentUpon>VerifyPhoneNumber.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ControladorasBD\ControladoraBDPersona.cs" />
+    <Compile Include="Models\EntidadPersona.cs" />
     <Compile Include="Vistas\AsociarNumerales.aspx.cs">
       <DependentUpon>AsociarNumerales.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

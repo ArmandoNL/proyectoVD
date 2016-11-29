@@ -11,6 +11,7 @@ namespace ProyectoVD
     public partial class Personas : System.Web.UI.Page
     {
         ControladoraBDPersona controladoraPersona = new ControladoraBDPersona();
+        Inicio inicio = new Inicio();
         EntidadPersona entidadConsultada;
 
         static int estado = 0;
@@ -18,6 +19,11 @@ namespace ProyectoVD
         {
             if (!IsPostBack)
             {
+                if (Inicio.estado != 0)
+                {
+                    estado = 3;
+                    inicio.cambiarEstado();
+                }
                 prepararInterfaz();
             }
         }
@@ -82,12 +88,14 @@ namespace ProyectoVD
 
         public void clickInsertar(object sender, EventArgs e)
         {
-         
+            estado = 3;
+            prepararInterfaz();         
         }
 
         public void clickModificar(object sender, EventArgs e)
         {
-           
+            estado = 2;
+            prepararInterfaz();
         }
 
         public void clickEliminar(object sender, EventArgs e)

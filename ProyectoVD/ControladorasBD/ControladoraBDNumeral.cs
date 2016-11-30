@@ -55,21 +55,5 @@ namespace ProyectoVD
             DataTable numerales = adaptador.consultar(consulta);
             return numerales;
         }
-
-        public DataTable buscarPersonaCedula(String cedula)
-        {
-            String consulta = "select Cedula,GradoAcademico,DescGrado from Persona where Cedula='" + cedula + "';";
-            DataTable personas = adaptador.consultar(consulta);
-            return personas;
-        }
-
-
-        public DataTable buscarPersonaNombre(String nombre)
-        {
-            String consulta = "select Cedula,Nombre,GradoAcademico,DescGrado from Persona where nombre like '%" + nombre + "%';";
-            DataTable personas = adaptador.consultar(consulta);
-            return personas;
-        }
-
     }
 }

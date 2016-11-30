@@ -16,7 +16,7 @@ namespace ProyectoVD
         public static int estado = 1;
         protected void Page_Load(object sender, EventArgs e)
         {
-            cargarNumerales(Inicio.concursoSeleccionado);
+            cargarNumerales(Inicio.parametroBuscar);
         }
 
         public void cargarNumerales(String concurso)

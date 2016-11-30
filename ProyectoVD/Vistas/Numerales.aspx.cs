@@ -102,6 +102,9 @@ namespace ProyectoVD
                     modificarNumeral();
                     break;
                 case 3:
+                    insertarNumeral();
+                    break;
+                case 4:
                     eliminarNumeral();
                     break;
                 default:
@@ -173,7 +176,7 @@ namespace ProyectoVD
 
         public void clickEliminar(object sender, EventArgs e)
         {
-
+            estado = 4;
         }
     }
 }

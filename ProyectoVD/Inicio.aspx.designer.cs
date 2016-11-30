@@ -22,13 +22,13 @@ namespace ProyectoVD {
         protected global::System.Web.UI.HtmlControls.HtmlInputButton btnInsertar;
         
         /// <summary>
-        /// txtBuscar control.
+        /// txtBuscarNumerales control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtBuscar;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtBuscarNumerales;
         
         /// <summary>
         /// btnBuscar control.
@@ -76,13 +76,13 @@ namespace ProyectoVD {
         protected global::System.Web.UI.WebControls.RadioButton rdbNombre;
         
         /// <summary>
-        /// Text1 control.
+        /// txtBuscarPersona control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Text1;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtBuscarPersona;
         
         /// <summary>
         /// btnBuscarPersona control.

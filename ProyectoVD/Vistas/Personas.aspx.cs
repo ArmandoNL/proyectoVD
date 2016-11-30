@@ -68,6 +68,9 @@ namespace ProyectoVD
                     modificarPersona();
                     break;
                 case 3:
+                    insertarPersona();
+                    break;
+                case 4:
                     eliminarPersona();
                     break;
                 default:
@@ -100,7 +103,7 @@ namespace ProyectoVD
 
         public void clickEliminar(object sender, EventArgs e)
         {
-
+            estado = 4;
         }
 
         private void insertarPersona()

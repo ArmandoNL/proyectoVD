@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 
@@ -25,6 +26,27 @@ namespace ProyectoVD
         {
             String consulta = "delete from Persona where Cedula='" + cedula + "';";
             adaptador.insertar(consulta);
+        }
+
+        public DataTable buscarPersonaCedula(String cedula)
+        {
+            String consulta = "select Cedula,Nombre,GradoAcademico,DescGrado from Persona where Cedula='" + cedula + "';";
+            DataTable personas = adaptador.consultar(consulta);
+            return personas;
+        }
+
+
+        public DataTable buscarPersonaNombre(String nombre)
+        {
+            String consulta = "select Cedula,Nombre,GradoAcademico,DescGrado from Persona where nombre like '%" + nombre + "%';";
+            DataTable personas = adaptador.consultar(consulta);
+            return personas;
+        }
+
+        public DataTable buscarPersonaConcurso(String[] factores)
+        {
+            String consulta = "select Cedula,Nombre,GradoAcademico,DescGrado from (Numerales n join Concursa c on n.id=c.IdNumeral) join Persona p on c.IdPersona=p.Cedula where n.Codigo='" + factores[1] + "' and n.CodConcurso='" + factores[0] + "'";
+            return adaptador.consultar(consulta);
         }
     }
 }

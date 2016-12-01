@@ -58,13 +58,13 @@ namespace ProyectoVD {
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtNombre;
         
         /// <summary>
-        /// cbxGrado control.
+        /// cbxGradoAcademico control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect cbxGrado;
+        protected global::System.Web.UI.WebControls.DropDownList cbxGradoAcademico;
         
         /// <summary>
         /// txaDescripcion control.

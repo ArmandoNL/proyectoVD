@@ -32,6 +32,7 @@ namespace ProyectoVD
 
         public void clickConcursar(object sender, EventArgs e)
         {
+            DataTable numeralesConsultados = controladora.numeralesDisponibles(txtConcurso.Value); 
 
         }
 

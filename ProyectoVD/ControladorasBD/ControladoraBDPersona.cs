@@ -16,9 +16,9 @@ namespace ProyectoVD
             adaptador.insertar(consulta);
         }
 
-        internal void modificarPersona(EntidadPersona entidadConsultada, EntidadPersona persona)
+        internal void modificarPersona(String idConsultado, EntidadPersona persona)
         {
-            String consulta = "update Persona set Cedula='" + persona.Cedula + "',Nombre='" + persona.Nombre + "',GradoAcademico='" + persona.GradoAcademico + "',DescGrado='" + persona.Comentarios + "',NotifTel='" + persona.Telefono + "', NotifCorreo='" + persona.Correo + "',NotiFisica='" + persona.Direccion + "' where Cedula='" + entidadConsultada.Cedula + "';";
+            String consulta = "update Persona set Cedula='" + persona.Cedula + "',Nombre='" + persona.Nombre + "',GradoAcademico='" + persona.GradoAcademico + "',DescGrado='" + persona.Comentarios + "',NotifTel='" + persona.Telefono + "', NotifCorreo='" + persona.Correo + "',NotiFisica='" + persona.Direccion + "' where Cedula='" + idConsultado + "';";
             adaptador.insertar(consulta);
         }
 
@@ -35,6 +35,13 @@ namespace ProyectoVD
             return personas;
         }
 
+
+        public DataTable buscarPersonaCedulaTodo(String cedula)
+        {
+            String consulta = "select Cedula,Nombre,GradoAcademico,DescGrado,NotifTel,NotifCorreo,NotiFisica from Persona where Cedula='" + cedula + "';";
+            DataTable personas = adaptador.consultar(consulta);
+            return personas;
+        }
 
         public DataTable buscarPersonaNombre(String nombre)
         {

@@ -35,12 +35,8 @@
                             </div>
                             <div class="col-md-4">
                                 <h4>Grado académico:</h4>
-                                <select class="form-control" id="cbxGrado" runat="server">
-                                    <option>Licenciatura</option>
-                                    <option>Maestría académica</option>
-                                    <option>Maestría profesional</option>
-                                    <option>Doctorado</option>
-                                </select>
+                                <asp:DropDownList ID="cbxGradoAcademico" runat="server" AutoPostBack="true" CssClass="form-control" ></asp:DropDownList>
+
                             </div>
                         </div>
                         <div class="row">
@@ -69,16 +65,16 @@
                 </div>
 
                 <div class="row">
-                        <div class="col-xs-6 col-md-4">
-                            <button type="button" id="btnGuardar" runat="server" onserverclick="clickGuardar" class="form-control" style="background-color: forestgreen; color: white">Guardar</button>
-                        </div>
-                        <div class="col-xs-6 col-md-4">
-                            <button type="button" id="btnGuardarAsociar" runat="server" class="form-control" style="background-color: forestgreen; color: white">Guardar y Asociar Numerales</button>
-                        </div>
-                        <div class="col-xs-6 col-md-4">
-                            <button type="button" id="btnCancelar" runat="server" class="form-control" onserverclick="clickCancelar" style="background-color: red; color: white">Cancelar</button>
-                        </div>
+                    <div class="col-xs-6 col-md-4">
+                        <button type="button" id="btnGuardar" runat="server" onserverclick="clickGuardar" class="form-control" style="background-color: forestgreen; color: white">Guardar</button>
                     </div>
+                    <div class="col-xs-6 col-md-4">
+                        <button type="button" id="btnGuardarAsociar" runat="server" class="form-control" style="background-color: forestgreen; color: white">Guardar y Asociar Numerales</button>
+                    </div>
+                    <div class="col-xs-6 col-md-4">
+                        <button type="button" id="btnCancelar" runat="server" class="form-control" onserverclick="clickCancelar" style="background-color: red; color: white">Cancelar</button>
+                    </div>
+                </div>
             </fieldset>
         </ContentTemplate>
     </asp:UpdatePanel>

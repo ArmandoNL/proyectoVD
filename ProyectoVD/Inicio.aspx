@@ -24,10 +24,10 @@
                 Escriba el concurso al que pertenece el numeral que desea modificar o eliminar y seleccione buscar.
             </p>
             <p>
-                <input id="txtBuscarNumerales" type="text" class="form-control" runat="server" GroupName="Submit1" required="required" title="Por favor, inserte un concurso." />
+                <input id="txtBuscarNumerales" type="text" class="form-control" runat="server" groupname="Submit1" required="required" title="Por favor, inserte un concurso." />
             </p>
             <p>
-                <input type="submit" class="btn btn-default" id="btnBuscar" value="Buscar" runat="server" GroupName="Submit1" onserverclick="clickBuscarNumeral" />
+                <input type="submit" class="btn btn-default" id="btnBuscar" value="Buscar" runat="server" groupname="Submit1" onserverclick="clickBuscarNumeral" />
 
             </p>
         </div>
@@ -48,14 +48,14 @@
             <p>
                 Puede realizar la búsqueda utilizando alguno de los siquientes criterios, solo seleccione uno e introduzca la palabra a buscar.
             </p>
-            <asp:RadioButton id="rdbConcurso" Text="Concurso" Checked="True" GroupName="RadioGroup1" runat="server" />
-            <asp:RadioButton id="rdbCedula" Text="Cédula" Checked="false" GroupName="RadioGroup1" runat="server" />
-            <asp:RadioButton id="rdbNombre" Text="Nombre" Checked="false" GroupName="RadioGroup1" runat="server" />
+            <asp:RadioButton ID="rdbConcurso" Text="Concurso" Checked="True" GroupName="RadioGroup1" runat="server" />
+            <asp:RadioButton ID="rdbCedula" Text="Cédula" Checked="false" GroupName="RadioGroup1" runat="server" />
+            <asp:RadioButton ID="rdbNombre" Text="Nombre" Checked="false" GroupName="RadioGroup1" runat="server" />
             <p>
-                <input id="txtBuscarPersona" type="text" class="form-control" runat="server" GroupName="Submit2" required="required" title="Por favor, inserte un parámetro de búsqueda." />
+                <input id="txtBuscarPersona" type="text" class="form-control" runat="server" groupname="Submit2" required="required" title="Por favor, inserte un parámetro de búsqueda." />
             </p>
             <p>
-                <input type="submit" class="btn btn-default" id="btnBuscarPersona" value="Buscar" GroupName="Submit2" runat="server" onserverclick="clickBuscarPersona" />
+                <input type="submit" class="btn btn-default" id="btnBuscarPersona" value="Buscar" groupname="Submit2" runat="server" onserverclick="clickBuscarPersona" />
 
             </p>
         </div>

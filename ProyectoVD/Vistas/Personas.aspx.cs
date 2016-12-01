@@ -12,18 +12,25 @@ namespace ProyectoVD
     {
         ControladoraBDPersona controladoraPersona = new ControladoraBDPersona();
         Inicio inicio = new Inicio();
-        EntidadPersona entidadConsultada;
+        static String idPersonaConsultada;
 
         static int estado = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
+                cargarCbxGrado();
                 if (Inicio.estado != 0)
                 {
                     estado = 3;
                     inicio.cambiarEstado();
                 }
+                else
+                {
+                    estado = ConsultarPersonas.estado;
+                }
+
+                idPersonaConsultada = ConsultarPersonas.idPersonaConsultada;
                 prepararInterfaz();
             }
         }
@@ -34,9 +41,10 @@ namespace ProyectoVD
             switch (estado)
             {
                 case 1://consultar un numeral
+                    consultarPersona();
                     txtCedula.Disabled = true;
                     txtNombre.Disabled = true;
-                    cbxGrado.Disabled = true;
+                    cbxGradoAcademico.Enabled = false;
                     txaDescripcion.Disabled = true;
                     txtTelefonos.Disabled = true;
                     txtCorreo.Disabled = true;
@@ -46,7 +54,7 @@ namespace ProyectoVD
                     btnEliminar.Disabled = false;
                     break;
                 case 2://modificar un numeral
-                    
+                    consultarPersona();
                     btnInsertar.Disabled = true;
                     btnModificar.Disabled = true;
                     btnEliminar.Disabled = false;
@@ -59,9 +67,31 @@ namespace ProyectoVD
             }
         }
 
+
+        protected void cargarCbxGrado()
+        {
+            cbxGradoAcademico.Items.Add("Seleccionar");
+            cbxGradoAcademico.Items.Add("Licenciatura");
+            cbxGradoAcademico.Items.Add("Maestría académica");
+            cbxGradoAcademico.Items.Add("Maestría profesional");
+            cbxGradoAcademico.Items.Add("Doctorado");
+        }
+
+        protected void consultarPersona()
+        {
+            DataTable persona = controladoraPersona.buscarPersonaCedulaTodo(idPersonaConsultada);
+            txtCedula.Value = persona.Rows[0][0].ToString();
+            txtNombre.Value = persona.Rows[0][1].ToString();
+            cbxGradoAcademico.SelectedValue = persona.Rows[0][2].ToString();
+            txaDescripcion.Value = persona.Rows[0][3].ToString();
+            txtTelefonos.Value = persona.Rows[0][4].ToString();
+            txtCorreo.Value = persona.Rows[0][5].ToString();
+            txtDireccion.Value = persona.Rows[0][6].ToString();
+        }
+
         public void clickGuardar(object sender, EventArgs e)
         {
-            
+
             switch (estado)
             {
                 case 2:
@@ -70,15 +100,12 @@ namespace ProyectoVD
                 case 3:
                     insertarPersona();
                     break;
-                case 4:
-                    eliminarPersona();
-                    break;
                 default:
                     insertarPersona();
                     break;
             }
         }
-        
+
         public void clickCancelar(object sender, EventArgs e)
         {
             Response.Redirect("/Inicio");
@@ -86,13 +113,25 @@ namespace ProyectoVD
 
         public void clickGuardarAsociar(object sender, EventArgs e)
         {
-            
+            switch (estado)
+            {
+                case 2:
+                    modificarPersona();
+                    break;
+                case 3:
+                    insertarPersona();
+                    break;
+                default:
+                    insertarPersona();
+                    break;
+            }
+            Response.Redirect("Vistas/AsociarNumerales");
         }
 
         public void clickInsertar(object sender, EventArgs e)
         {
             estado = 3;
-            prepararInterfaz();         
+            prepararInterfaz();
         }
 
         public void clickModificar(object sender, EventArgs e)
@@ -103,7 +142,7 @@ namespace ProyectoVD
 
         public void clickEliminar(object sender, EventArgs e)
         {
-            estado = 4;
+            eliminarPersona();
         }
 
         private void insertarPersona()
@@ -112,7 +151,7 @@ namespace ProyectoVD
 
             nuevaPersona[0] = txtCedula.Value;
             nuevaPersona[1] = txtNombre.Value;
-            nuevaPersona[2] = cbxGrado.Value;
+            nuevaPersona[2] = cbxGradoAcademico.Text;
             nuevaPersona[3] = txaDescripcion.Value;
             nuevaPersona[4] = txtTelefonos.Value;
             nuevaPersona[5] = txtCorreo.Value;
@@ -128,19 +167,19 @@ namespace ProyectoVD
 
             nuevaPersona[0] = txtCedula.Value;
             nuevaPersona[1] = txtNombre.Value;
-            nuevaPersona[2] = cbxGrado.Value;
+            nuevaPersona[2] = cbxGradoAcademico.Text;
             nuevaPersona[3] = txaDescripcion.Value;
             nuevaPersona[4] = txtTelefonos.Value;
             nuevaPersona[5] = txtCorreo.Value;
             nuevaPersona[6] = txtDireccion.Value;
 
             EntidadPersona persona = new EntidadPersona(nuevaPersona);
-            controladoraPersona.modificarPersona(entidadConsultada, persona);
+            controladoraPersona.modificarPersona(idPersonaConsultada, persona);
         }
 
         private void eliminarPersona()
         {
-            controladoraPersona.eliminarPersona(entidadConsultada.Cedula);
+            controladoraPersona.eliminarPersona(idPersonaConsultada);
         }
 
 

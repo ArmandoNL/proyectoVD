@@ -13,16 +13,16 @@
                     <div class="row">
                         <div class="col-md-4">
                             <h4>Puntaje Unidad Académica:</h4>
-                            <input type="text" id="txtPuntajeUA" class="form-control">
+                            <input type="text" id="txtPuntajeUA" runat="server" class="form-control">
                         </div>
                         <div class="col-md-4">
                             <h4>Puntaje real:</h4>
-                            <input type="text" id="txtPuntajeReal" class="form-control">
+                            <input type="text" id="txtPuntajeReal" runat="server" class="form-control">
                         </div>
 
                         <div class="col-md-4">
                             <h4>Constancia de nombramiento:</h4>
-                            <input type="text" id="txtConstancia" class="form-control">
+                            <input type="text" id="txtConstancia" runat="server" class="form-control">
                         </div>
                     </div>
                     <div class="row">

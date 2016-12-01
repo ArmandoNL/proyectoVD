@@ -9,7 +9,7 @@
             </legend>
             <div class="jumbotron well bs-component">
                 <fieldset>
-                    <legend style="padding-top: 30px">Información administrativa</legend>
+                    <legend style="padding-top: 30px">Información administrativa para asociar:</legend>
                     <div class="row">
                         <div class="col-md-4">
                             <h4>Puntaje Unidad Académica:</h4>
@@ -20,12 +20,15 @@
                             <input type="text" id="txtPuntajeReal" runat="server" class="form-control">
                         </div>
 
+                    </div>
+
+                    <legend style="padding-top: 30px">Información administrativa para adjudicar:</legend>
+                    <div class="row">
+
                         <div class="col-md-4">
                             <h4>Constancia de nombramiento:</h4>
                             <input type="text" id="txtConstancia" runat="server" class="form-control">
                         </div>
-                    </div>
-                    <div class="row">
                         <div class="col-md-4">
                             <h4>Fecha de resultado:</h4>
 
@@ -76,14 +79,32 @@
             </div>
             <div class="row">
                 <div class="col-xs-6 col-md-4">
-                    <button type="button" id="btnGuardar" runat="server" class="form-control" style="background-color: forestgreen; color: white">Guardar</button>
+                    
                 </div>
                 <div class="col-xs-6 col-md-4">
-                    <button type="button" id="btnGuardarInsertar" runat="server" class="form-control" style="background-color: forestgreen; color: white">Guardar y Agregar Persona</button>
+                    <button type="button" id="btnGuardarInsertar" runat="server" class="form-control" style="background-color: forestgreen; color: white">Agregar nueva persona</button>
                 </div>
                 <div class="col-xs-6 col-md-4">
-                    <button type="button" id="btnCancelar" runat="server" class="form-control" style="background-color:red; color: white">Cancelar</button>
+                    <button type="button" id="btnCancelar" runat="server" class="form-control" data-toggle="modal" data-target="#modalcancelar" style="background-color: red; color: white">Terminar</button>
                 </div>
+
+                <div class="modal fade" id="modalcancelar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title" id="myModalLabel">Cancelar Operación</h4>
+                            </div>
+                            <div class="modal-body">
+                                <p>¿Desea Terminar? Es una operacion irreversible</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-success" runat="server" onserverclick="clickCancelar" data-dismiss="modal">Aceptar</button>
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </ContentTemplate>
     </asp:UpdatePanel>

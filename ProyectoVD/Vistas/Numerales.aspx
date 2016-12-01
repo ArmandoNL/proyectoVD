@@ -58,10 +58,36 @@
                     </div>
                     <h4>Descripción</h4>
                     <textarea id="txaDescripcion" class="form-control" rows="5" runat="server"></textarea>
-
-                    <input type="submit" class="btn btn-success" id="btnAceptar" value="Aceptar" runat="server" onserverclick="clickAceptar" />
-                    <input type="button" class="btn btn-danger" id="Button1" value="Cancelar" runat="server" onserverclick="clickCancelar" />
                 </div>
+
+                <div class="row">
+                        <div class="col-xs-6 col-md-4">
+                        </div>
+                        <div class="col-xs-6 col-md-4">
+                            <button type="button" id="btnAceptar" runat="server" class="form-control" style="background-color: forestgreen; color: white">Guardar</button>
+                        </div>
+                        <div class="col-xs-6 col-md-4">
+                            <button type="button" id="btnCancelar" runat="server" class="form-control" data-toggle="modal" data-target="#modalcancelar" style="background-color: red; color: white">Cancelar</button>
+                        </div>
+
+                        <div class="modal fade" id="modalcancelar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title" id="myModalLabel">Cancelar Operación</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>¿Desea Terminar? Es una operacion irreversible</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-success" runat="server" onserverclick="clickCancelar" data-dismiss="modal">Aceptar</button>
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
             </fieldset>
         </ContentTemplate>
     </asp:UpdatePanel>

@@ -12,7 +12,7 @@ namespace ProyectoVD
     {
         ControladoraBDPersona controladoraPersona = new ControladoraBDPersona();
         Inicio inicio = new Inicio();
-        static String idPersonaConsultada;
+        public static String idPersonaConsultada;
 
         static int estado = 0;
         protected void Page_Load(object sender, EventArgs e)

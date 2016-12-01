@@ -35,7 +35,7 @@
                             </div>
                             <div class="col-md-4">
                                 <h4>Grado académico:</h4>
-                                <asp:DropDownList ID="cbxGradoAcademico" runat="server" AutoPostBack="true" CssClass="form-control" ></asp:DropDownList>
+                                <asp:DropDownList ID="cbxGradoAcademico" runat="server" AutoPostBack="true" CssClass="form-control"></asp:DropDownList>
 
                             </div>
                         </div>
@@ -72,8 +72,26 @@
                         <button type="button" id="btnGuardarAsociar" runat="server" class="form-control" style="background-color: forestgreen; color: white">Guardar y Asociar Numerales</button>
                     </div>
                     <div class="col-xs-6 col-md-4">
-                        <button type="button" id="btnCancelar" runat="server" class="form-control" onserverclick="clickCancelar" style="background-color: red; color: white">Cancelar</button>
+                        <button type="button" id="btnCancelar" runat="server" class="form-control" data-toggle="modal" data-target="#modalcancelar" style="background-color: red; color: white">Cancelar</button>
                     </div>
+
+                    <div class="modal fade" id="modalcancelar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title" id="myModalLabel">Cancelar Operación</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <p>¿Desea Cancelar? Es una operacion irreversible</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-success" runat="server" onserverclick="clickCancelar" data-dismiss="modal">Aceptar</button>
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </fieldset>
         </ContentTemplate>

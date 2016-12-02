@@ -27,7 +27,7 @@
                 <input id="txtBuscarNumerales" type="text" class="form-control" runat="server" groupname="Submit1" required="required" title="Por favor, inserte un concurso." />
             </p>
             <p>
-                <input type="submit" class="btn btn-default" id="btnBuscar" value="Buscar" runat="server" groupname="Submit1" onserverclick="clickBuscarNumeral" />
+                <input type="button" class="btn btn-default" id="btnBuscar" value="Buscar" runat="server" groupname="Submit1" onserverclick="clickBuscarNumeral" />
 
             </p>
         </div>
@@ -55,7 +55,7 @@
                 <input id="txtBuscarPersona" type="text" class="form-control" runat="server" groupname="Submit2" required="required" title="Por favor, inserte un parámetro de búsqueda." />
             </p>
             <p>
-                <input type="submit" class="btn btn-default" id="btnBuscarPersona" value="Buscar" groupname="Submit2" runat="server" onserverclick="clickBuscarPersona" />
+                <input type="button" class="btn btn-default" id="btnBuscarPersona" value="Buscar" groupname="Submit2" runat="server" onserverclick="clickBuscarPersona" />
 
             </p>
         </div>

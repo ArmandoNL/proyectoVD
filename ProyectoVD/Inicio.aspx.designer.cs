@@ -37,7 +37,7 @@ namespace ProyectoVD {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputSubmit btnBuscar;
+        protected global::System.Web.UI.HtmlControls.HtmlInputButton btnBuscar;
         
         /// <summary>
         /// btnInsertarPersona control.
@@ -91,6 +91,6 @@ namespace ProyectoVD {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputSubmit btnBuscarPersona;
+        protected global::System.Web.UI.HtmlControls.HtmlInputButton btnBuscarPersona;
     }
 }

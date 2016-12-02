@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Web;
+using System.Web.UI.HtmlControls;
 
 namespace ProyectoVD
 {
@@ -37,11 +38,14 @@ namespace ProyectoVD
             return numeral;
         }
 
+        
+
         public void modificarNumerales(EntidadNumerales numeral, int idConsultado)
         {
             String consulta = "update Numerales set Codigo='"+ numeral.Codigo + "',Jornada= " + numeral.Jornada + ",Estado='" + numeral.Estado + "',Descripcion='" + numeral.Descripcion + "',CodConcurso='" + numeral.Concurso + "',IdUA=" + numeral.IdUA + " where id=" + idConsultado + ";";
             adaptador.insertar(consulta);
         }
+        
 
         public void eliminarNumeral(int id)
         {
@@ -68,5 +72,37 @@ namespace ProyectoVD
             String consulta = "update Numerales set FechaResultado='"+ fecha +"', Constancia='"+ constancia +"', IdPersona='"+ personaConsultada +"' where Id="+ idNumeral +";";
             adaptador.insertar(consulta);
         }
+
+        public DataTable reportePersonas(String concurso, int idNumeral)
+        {
+            String consulta = "select p.Nombre,P.Cedula,p.GradoAcademico as 'Grado Académico',n.Codigo as 'Numeral',n.Estado,c.PuntajeReal as 'Puntaje Real',c.PuntajeUA as 'Puntaje UA',p.NotifCorreo as 'Notifcación' from (Numerales n join Concursa c on n.Id=c.IdNumeral) join Persona p on c.IdPersona=p.Cedula where n.CodConcurso='"+ concurso +"' and n.IdUA="+ idNumeral +"";
+            return adaptador.consultar(consulta);
+        }
+
+        internal int[] reporteUAyConcurso(int idUA, String concurso)
+        {
+            int[] resp = new int[3];
+            String consulta = "select sum(jornada) from Numerales where CodConcurso='"+ concurso +"' and IdUA="+ idUA +";";
+            DataTable tabla = adaptador.consultar(consulta);
+
+
+            return resp;
+        }
+
+        internal int[] reporteUAyAnno(int idUA, String anno)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal int[] reporteAnno(String anno)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal int[] reporteConcurso(String concurso)
+        {
+            throw new NotImplementedException();
+        }
+
     }
 }

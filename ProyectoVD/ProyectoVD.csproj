@@ -170,6 +170,7 @@
     <Content Include="Account\ResetPasswordConfirmation.aspx" />
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
+    <Content Include="Vistas\Reportes.aspx" />
     <Content Include="Vistas\AsociarNumerales.aspx" />
     <Content Include="Vistas\ConsultarPersonas.aspx" />
     <Content Include="Vistas\Personas.aspx" />
@@ -340,6 +341,13 @@
     </Compile>
     <Compile Include="ControladorasBD\ControladoraBDPersona.cs" />
     <Compile Include="Models\EntidadPersona.cs" />
+    <Compile Include="Vistas\Reportes.aspx.cs">
+      <DependentUpon>Reportes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\Reportes.aspx.designer.cs">
+      <DependentUpon>Reportes.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\AsociarNumerales.aspx.cs">
       <DependentUpon>AsociarNumerales.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

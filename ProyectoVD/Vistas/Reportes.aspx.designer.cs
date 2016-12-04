@@ -103,6 +103,15 @@ namespace ProyectoVD {
         protected global::System.Web.UI.HtmlControls.HtmlInputButton btnBuscar2;
         
         /// <summary>
+        /// lblOfrecido control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblOfrecido;
+        
+        /// <summary>
         /// txtOfrecido control.
         /// </summary>
         /// <remarks>
@@ -110,6 +119,15 @@ namespace ProyectoVD {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtOfrecido;
+        
+        /// <summary>
+        /// lblAdjudicado control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAdjudicado;
         
         /// <summary>
         /// txtAdjudicado control.
@@ -121,6 +139,15 @@ namespace ProyectoVD {
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtAdjudicado;
         
         /// <summary>
+        /// lblNoAdjudicado control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNoAdjudicado;
+        
+        /// <summary>
         /// txtNoAdjudicado control.
         /// </summary>
         /// <remarks>
@@ -128,6 +155,24 @@ namespace ProyectoVD {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtNoAdjudicado;
+        
+        /// <summary>
+        /// lblEnEspera control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblEnEspera;
+        
+        /// <summary>
+        /// txtEnEspera control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtEnEspera;
         
         /// <summary>
         /// grvReporte control.

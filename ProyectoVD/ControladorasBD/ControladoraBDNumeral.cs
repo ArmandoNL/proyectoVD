@@ -38,14 +38,14 @@ namespace ProyectoVD
             return numeral;
         }
 
-        
+
 
         public void modificarNumerales(EntidadNumerales numeral, int idConsultado)
         {
-            String consulta = "update Numerales set Codigo='"+ numeral.Codigo + "',Jornada= " + numeral.Jornada + ",Estado='" + numeral.Estado + "',Descripcion='" + numeral.Descripcion + "',CodConcurso='" + numeral.Concurso + "',IdUA=" + numeral.IdUA + " where id=" + idConsultado + ";";
+            String consulta = "update Numerales set Codigo='" + numeral.Codigo + "',Jornada= " + numeral.Jornada + ",Estado='" + numeral.Estado + "',Descripcion='" + numeral.Descripcion + "',CodConcurso='" + numeral.Concurso + "',IdUA=" + numeral.IdUA + " where id=" + idConsultado + ";";
             adaptador.insertar(consulta);
         }
-        
+
 
         public void eliminarNumeral(int id)
         {
@@ -63,46 +63,133 @@ namespace ProyectoVD
 
         public void asociarNumeral(int idNumeral, String idPersona, float puntajeUA, float puntajeReal)//asocia un numeral a una persona en la Base de Datos
         {
-            String consulta = "insert into Concursa(IdNumeral,IdPersona,PuntajeReal,PuntajeUA) values("+ idNumeral +",'"+ idPersona +"',"+ puntajeReal+","+ puntajeUA +");";
+            String consulta = "insert into Concursa(IdNumeral,IdPersona,PuntajeReal,PuntajeUA) values(" + idNumeral + ",'" + idPersona + "'," + puntajeReal + "," + puntajeUA + ");";
             adaptador.insertar(consulta);
         }
 
         public void adjudicarNumeral(int idNumeral, string personaConsultada, string constancia, string fecha)
         {
-            String consulta = "update Numerales set FechaResultado='"+ fecha +"', Constancia='"+ constancia +"', IdPersona='"+ personaConsultada +"' where Id="+ idNumeral +";";
+            String consulta = "update Numerales set FechaResultado='" + fecha + "', Constancia='" + constancia + "', IdPersona='" + personaConsultada + "' where Id=" + idNumeral + ";";
             adaptador.insertar(consulta);
         }
 
         public DataTable reportePersonas(String concurso, int idNumeral)
         {
-            String consulta = "select p.Nombre,P.Cedula,p.GradoAcademico as 'Grado Académico',n.Codigo as 'Numeral',n.Estado,c.PuntajeReal as 'Puntaje Real',c.PuntajeUA as 'Puntaje UA',p.NotifCorreo as 'Notifcación' from (Numerales n join Concursa c on n.Id=c.IdNumeral) join Persona p on c.IdPersona=p.Cedula where n.CodConcurso='"+ concurso +"' and n.IdUA="+ idNumeral +"";
+            String consulta = "select p.Nombre,P.Cedula,p.GradoAcademico as 'Grado Académico',n.Codigo as 'Numeral',n.Estado,c.PuntajeReal as 'Puntaje Real',c.PuntajeUA as 'Puntaje UA',p.NotifCorreo as 'Notifcación' from (Numerales n join Concursa c on n.Id=c.IdNumeral) join Persona p on c.IdPersona=p.Cedula where n.CodConcurso='" + concurso + "' and n.IdUA=" + idNumeral + "";
             return adaptador.consultar(consulta);
         }
 
-        internal int[] reporteUAyConcurso(int idUA, String concurso)
+        internal float[] reporteUAyConcurso(int idUA, String concurso)
         {
-            int[] resp = new int[3];
-            String consulta = "select sum(jornada) from Numerales where CodConcurso='"+ concurso +"' and IdUA="+ idUA +";";
+            float[] resp = new float[3];
+
+            String consulta = "select sum(jornada) from Numerales where CodConcurso='" + concurso + "' and IdUA=" + idUA + ";";
             DataTable tabla = adaptador.consultar(consulta);
+            if (tabla.Rows[0][0].ToString() != "")
+            {
+                resp[0] = float.Parse(tabla.Rows[0][0].ToString());
+            }
+
+            consulta = "select sum(jornada) from Numerales where CodConcurso='" + concurso + "' and IdUA=" + idUA + " and Estado='Adjudicado';";
+            tabla = adaptador.consultar(consulta);
+            if (tabla.Rows[0][0].ToString() != "")
+            {
+                resp[1] = float.Parse(tabla.Rows[0][0].ToString());
+            }
+
+            consulta = "select sum(jornada) from Numerales where CodConcurso='" + concurso + "' and IdUA=" + idUA + " and Estado='No Adjudicado';";
+            tabla = adaptador.consultar(consulta);
+            if (tabla.Rows[0][0].ToString() != "")
+            {
+                resp[2] = float.Parse(tabla.Rows[0][0].ToString());
+            }
+
+            return resp;
+        }
+
+        internal float[] reporteUAyAnno(int idUA, String anno)
+        {
+            float[] resp = new float[3];
+
+            String consulta = "select sum(n.Jornada) from Numerales n join Concurso c on n.CodConcurso=c.Codigo where c.Anno='" + anno + "' and IdUA=" + idUA + ";";
+            DataTable tabla = adaptador.consultar(consulta);
+            if (tabla.Rows[0][0].ToString() != "")
+            {
+                resp[0] = float.Parse(tabla.Rows[0][0].ToString());
+            }
+
+            consulta = "select sum(n.Jornada) from Numerales n join Concurso c on n.CodConcurso=c.Codigo where c.Anno='" + anno + "' and IdUA=" + idUA + " and Estado='Adjudicado';";
+            tabla = adaptador.consultar(consulta);
+            if (tabla.Rows[0][0].ToString() != "")
+            {
+                resp[1] = float.Parse(tabla.Rows[0][0].ToString());
+            }
+
+            consulta = "select sum(n.Jornada) from Numerales n join Concurso c on n.CodConcurso=c.Codigo where c.Anno='" + anno + "' and IdUA=" + idUA + " and Estado='No Adjudicado';";
+            tabla = adaptador.consultar(consulta);
+            if (tabla.Rows[0][0].ToString() != "")
+            {
+                resp[2] = float.Parse(tabla.Rows[0][0].ToString());
+            }
+
+            return resp;
+        }
+
+        internal float[] reporteAnno(String anno)
+        {
+            float[] resp = new float[3];
+
+            String consulta = "select sum(n.Jornada) from Numerales n join Concurso c on n.CodConcurso=c.Codigo where c.Anno='" + anno + "';";
+            DataTable tabla = adaptador.consultar(consulta);
+            if (tabla.Rows[0][0].ToString() != "")
+            {
+                resp[0] = float.Parse(tabla.Rows[0][0].ToString());
+            }
+
+            consulta = "select sum(n.Jornada) from Numerales n join Concurso c on n.CodConcurso=c.Codigo where c.Anno='" + anno + "' and Estado='Adjudicado';";
+            tabla = adaptador.consultar(consulta);
+            if (tabla.Rows[0][0].ToString() != "")
+            {
+                resp[1] = float.Parse(tabla.Rows[0][0].ToString());
+            }
+
+            consulta = "select sum(n.Jornada) from Numerales n join Concurso c on n.CodConcurso=c.Codigo where c.Anno='" + anno + "' and Estado='No Adjudicado';";
+            tabla = adaptador.consultar(consulta);
+            if (tabla.Rows[0][0].ToString() != "")
+            {
+                resp[2] = float.Parse(tabla.Rows[0][0].ToString());
+            }
 
 
             return resp;
         }
 
-        internal int[] reporteUAyAnno(int idUA, String anno)
+        internal float[] reporteConcurso(String concurso)
         {
-            throw new NotImplementedException();
-        }
+            float[] resp = new float[3];
 
-        internal int[] reporteAnno(String anno)
-        {
-            throw new NotImplementedException();
-        }
+            String consulta = "select sum(jornada) from Numerales where CodConcurso='" + concurso + "';";
+            DataTable tabla = adaptador.consultar(consulta);
+            if (tabla.Rows[0][0].ToString() != "")
+            {
+                resp[0] = float.Parse(tabla.Rows[0][0].ToString());
+            }
 
-        internal int[] reporteConcurso(String concurso)
-        {
-            throw new NotImplementedException();
-        }
+            consulta = "select sum(jornada) from Numerales where CodConcurso='" + concurso + "' and Estado='Adjudicado';";
+            tabla = adaptador.consultar(consulta);
+            if (tabla.Rows[0][0].ToString() != "")
+            {
+                resp[1] = float.Parse(tabla.Rows[0][0].ToString());
+            }
 
+            consulta = "select sum(jornada) from Numerales where CodConcurso='" + concurso + "' and Estado='No Adjudicado';";
+            tabla = adaptador.consultar(consulta);
+            if (tabla.Rows[0][0].ToString() != "")
+            {
+                resp[2] = float.Parse(tabla.Rows[0][0].ToString());
+            }
+
+            return resp;
+        }
     }
 }

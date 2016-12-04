@@ -44,8 +44,13 @@ namespace ProyectoVD
             txtOfrecido.Visible = true;
             txtAdjudicado.Visible = true;
             txtNoAdjudicado.Visible = true;
+            txtEnEspera.Visible = true;
+            lblOfrecido.Visible = true;
+            lblAdjudicado.Visible = true;
+            lblNoAdjudicado.Visible = true;
+            lblEnEspera.Visible = true;
 
-            int[] resp;
+            float[] resp;
 
             if (rdbUAyC.Checked)
             {
@@ -66,6 +71,11 @@ namespace ProyectoVD
                     resp = controladoraBDnumeral.reporteAnno(txtAnno.Value);
                 }
             }
+
+            txtOfrecido.Value = resp[0].ToString();
+            txtAdjudicado.Value = resp[1].ToString();
+            txtNoAdjudicado.Value = resp[2].ToString();
+            txtEnEspera.Value = (resp[0] - (resp[1] + resp[2])).ToString();
         }
         public void clickBuscar2(object sender, EventArgs e)
         {

@@ -180,6 +180,7 @@ namespace ProyectoVD
         private void eliminarPersona()
         {
             controladoraPersona.eliminarPersona(idPersonaConsultada);
+            Response.Redirect("/Inicio");
         }
 
 

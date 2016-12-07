@@ -76,6 +76,19 @@ namespace ProyectoVD
                     btnEliminar.Disabled = false;
                     break;
                 case 3://insertar un numeral
+                    txtConcurso.Disabled = false;
+                    cbxUA.Enabled = true;
+                    txtCodNum.Disabled = false;
+                    txtJornada.Disabled = false;
+                    cbxEstado.Disabled = false;
+                    txaDescripcion.Disabled = false;
+
+                    txtConcurso.Value = "";
+                    CargarCbxUA();
+                    txtCodNum.Value = "";
+                    txtJornada.Value = "";
+                    txaDescripcion.Value = "";
+
                     btnEliminar.Disabled = true;
                     btnInsertar.Disabled = true;
                     btnModificar.Disabled = true;
@@ -103,9 +116,6 @@ namespace ProyectoVD
                     break;
                 case 3:
                     insertarNumeral();
-                    break;
-                case 4:
-                    eliminarNumeral();
                     break;
                 default:
                     insertarNumeral();
@@ -176,7 +186,8 @@ namespace ProyectoVD
 
         public void clickEliminar(object sender, EventArgs e)
         {
-            estado = 4;
+            eliminarNumeral();
+            Response.Redirect("/Inicio");
         }
     }
 }

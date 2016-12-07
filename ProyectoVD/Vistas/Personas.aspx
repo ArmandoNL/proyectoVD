@@ -16,7 +16,7 @@
                         <button type="button" id="btnModificar" runat="server" class="form-control" onserverclick="clickModificar" style="background-color: forestgreen; color: white">Modificar</button>
                     </div>
                     <div class="col-xs-6 col-md-4">
-                        <button type="button" id="btnEliminar" runat="server" class="form-control" onserverclick="clickEliminar" style="background-color: forestgreen; color: white">Eliminar</button>
+                        <button type="button" id="btnEliminar" runat="server" class="form-control" data-toggle="modal" data-target="#modalEliminar" style="background-color: forestgreen; color: white">Eliminar</button>
                     </div>
                 </div>
 
@@ -93,6 +93,24 @@
                     </div>
 
                 </div>
+
+                <div class="modal fade" id="modalEliminar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title" id="myModalLabel1">Eliminar persona</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>¿Seguro que desea Eliminar esta persona? Esta es una operacion irreversible.</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-success" runat="server" onserverclick="clickEliminar" data-dismiss="modal">Aceptar</button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             </fieldset>
         </ContentTemplate>
     </asp:UpdatePanel>

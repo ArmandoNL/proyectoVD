@@ -15,6 +15,8 @@ namespace ProyectoVD
         public static int estado;
         static DataTable personasConsultadas = new DataTable();
         public static String idPersonaConsultada;
+        public static int bandera = 0; 
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -73,7 +75,30 @@ namespace ProyectoVD
             GridViewRow row = (GridViewRow)btn.NamingContainer;
             int i = Convert.ToInt32(row.RowIndex);
             idPersonaConsultada = personasConsultadas.Rows[i][0].ToString();
+            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "none", "<script>$('#modalEliminar').modal('show');</script>", false);
+
+        }
+
+        protected void clickEliminarBD(object sender, EventArgs e)
+        {
             controladoraBD.eliminarPersona(idPersonaConsultada);
+            cargarPersonas(txtBuscar.Value, Inicio.buscarPor);
+        }
+
+        protected void clickAsociarNumeral(object sender, EventArgs e)
+        {
+            bandera = 1;
+            LinkButton btn = (LinkButton)sender;
+            GridViewRow row = (GridViewRow)btn.NamingContainer;
+            int i = Convert.ToInt32(row.RowIndex);
+            idPersonaConsultada = personasConsultadas.Rows[i][0].ToString();
+            Response.Redirect("AsociarNumerales");
+
+        }
+
+        public void limpiarBandera()
+        {
+            bandera = 0;
         }
     }
 }

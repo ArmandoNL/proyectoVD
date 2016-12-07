@@ -11,6 +11,7 @@ namespace ProyectoVD
     public partial class AsociarNumerales : System.Web.UI.Page
     {
         ControladoraBDNumeral controladora = new ControladoraBDNumeral();
+        ConsultarPersonas persona = new ConsultarPersonas();
         int[] idsConsultados;
         String personaConsultada;
 
@@ -18,7 +19,15 @@ namespace ProyectoVD
         {
             if (!IsPostBack)
             {
-                personaConsultada = Personas.idPersonaConsultada;
+                if (ConsultarPersonas.bandera != 0)
+                {
+                    personaConsultada = ConsultarPersonas.idPersonaConsultada;
+                    persona.limpiarBandera();
+                }
+                else
+                {
+                    personaConsultada = Personas.idPersonaConsultada;
+                }
             }
         }
 
@@ -51,7 +60,7 @@ namespace ProyectoVD
             LinkButton btn = (LinkButton)sender;
             GridViewRow row = (GridViewRow)btn.NamingContainer;
             int i = Convert.ToInt32(row.RowIndex);
-            controladora.asociarNumeral(idsConsultados[i], personaConsultada, float.Parse(txtPuntajeReal.Value),float.Parse(txtPuntajeUA.Value));
+            controladora.asociarNumeral(idsConsultados[i], personaConsultada, float.Parse(txtPuntajeReal.Value), float.Parse(txtPuntajeUA.Value));
 
         }
 
@@ -60,7 +69,7 @@ namespace ProyectoVD
             LinkButton btn = (LinkButton)sender;
             GridViewRow row = (GridViewRow)btn.NamingContainer;
             int i = Convert.ToInt32(row.RowIndex);
-            controladora.adjudicarNumeral(idsConsultados[i], personaConsultada,txtConstancia.Value,txtFecha.Value);
+            controladora.adjudicarNumeral(idsConsultados[i], personaConsultada, txtConstancia.Value, txtFecha.Value);
         }
 
         public void clickCancelar(object sender, EventArgs e)

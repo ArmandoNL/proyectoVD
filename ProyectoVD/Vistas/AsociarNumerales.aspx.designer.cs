@@ -49,13 +49,13 @@ namespace ProyectoVD {
         protected global::System.Web.UI.WebControls.GridView grvNumerales;
         
         /// <summary>
-        /// btnGuardarInsertar control.
+        /// btnInsertarPersona control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton btnGuardarInsertar;
+        protected global::System.Web.UI.HtmlControls.HtmlButton btnInsertarPersona;
         
         /// <summary>
         /// btnCancelar control.
@@ -101,23 +101,5 @@ namespace ProyectoVD {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtFecha;
-        
-        /// <summary>
-        /// fechaDeEntrada control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputButton fechaDeEntrada;
-        
-        /// <summary>
-        /// fechaDeEntradaCalendario control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar fechaDeEntradaCalendario;
     }
 }

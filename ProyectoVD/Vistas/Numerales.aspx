@@ -77,7 +77,7 @@
                                         <h4 class="modal-title" id="myModalLabel">Cancelar Operación</h4>
                                     </div>
                                     <div class="modal-body">
-                                        <p>¿Desea Terminar? Es una operacion irreversible</p>
+                                        <p>¿Desea Cancelar? Es una operacion irreversible</p>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-success" runat="server" onserverclick="clickCancelar" data-dismiss="modal">Aceptar</button>

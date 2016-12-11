@@ -12,6 +12,7 @@ namespace ProyectoVD
     {
         ControladoraBDPersona controladoraPersona = new ControladoraBDPersona();
         Inicio inicio = new Inicio();
+        AsociarNumerales asociar = new AsociarNumerales();
         public static String idPersonaConsultada;
 
         static int estado = 0;
@@ -20,10 +21,11 @@ namespace ProyectoVD
             if (!IsPostBack)
             {
                 cargarCbxGrado();
-                if (Inicio.estado != 0)
+                if (Inicio.estado != 0 || AsociarNumerales.estado != 0)
                 {
                     estado = 3;
                     inicio.cambiarEstado();
+                    asociar.limpiarEstado();
                 }
                 else
                 {
@@ -63,6 +65,22 @@ namespace ProyectoVD
                     btnEliminar.Disabled = true;
                     btnInsertar.Disabled = true;
                     btnModificar.Disabled = true;
+
+                    txtCedula.Disabled = false;
+                    txtNombre.Disabled = false;
+                    cbxGradoAcademico.Enabled = true;
+                    txaDescripcion.Disabled = false;
+                    txtTelefonos.Disabled = false;
+                    txtCorreo.Disabled = false;
+                    txtDireccion.Disabled = false;
+
+                    txtCedula.Value = "";
+                    txtNombre.Value = "";
+                    cargarCbxGrado();
+                    txaDescripcion.Value = "";
+                    txtTelefonos.Value = "";
+                    txtCorreo.Value = "";
+                    txtDireccion.Value = "";
                     break;
             }
         }
@@ -125,7 +143,7 @@ namespace ProyectoVD
                     insertarPersona();
                     break;
             }
-            Response.Redirect("Vistas/AsociarNumerales");
+            Response.Redirect("AsociarNumerales");
         }
 
         public void clickInsertar(object sender, EventArgs e)
@@ -148,6 +166,8 @@ namespace ProyectoVD
         private void insertarPersona()
         {
             Object[] nuevaPersona = new Object[7];
+
+            idPersonaConsultada = txtCedula.Value;
 
             nuevaPersona[0] = txtCedula.Value;
             nuevaPersona[1] = txtNombre.Value;

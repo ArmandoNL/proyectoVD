@@ -12,8 +12,10 @@ namespace ProyectoVD
     {
         ControladoraBDNumeral controladora = new ControladoraBDNumeral();
         ConsultarPersonas persona = new ConsultarPersonas();
-        int[] idsConsultados;
-        String personaConsultada;
+        static int[] idsConsultados;
+        static String personaConsultada;
+        static int indiceConsultado;
+        public static int estado;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -55,21 +57,42 @@ namespace ProyectoVD
             cargarGrid(txtConcurso.Value);
         }
 
-        public void clickConcursar(object sender, EventArgs e)
+        public void clickConcursarModal(object sender, EventArgs e)
         {
             LinkButton btn = (LinkButton)sender;
             GridViewRow row = (GridViewRow)btn.NamingContainer;
-            int i = Convert.ToInt32(row.RowIndex);
-            controladora.asociarNumeral(idsConsultados[i], personaConsultada, float.Parse(txtPuntajeReal.Value), float.Parse(txtPuntajeUA.Value));
+            indiceConsultado = Convert.ToInt32(row.RowIndex);
+            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "none", "<script>$('#modalAsociar').modal('show');</script>", false);
+        }
 
+        public void clickConcursar(object sender, EventArgs e)
+        {
+            float puntajeReal = 0;
+            float puntajeUA = 0;
+
+            if (txtPuntajeReal.Value != "")
+            {
+                puntajeReal = float.Parse(txtPuntajeReal.Value);
+            }
+            if (txtPuntajeUA.Value != "")
+            {
+                puntajeUA = float.Parse(txtPuntajeUA.Value);
+            }
+
+            controladora.asociarNumeral(idsConsultados[indiceConsultado], personaConsultada, puntajeUA, puntajeReal);
+        }
+
+        public void clickAdjudicarModal(object sender, EventArgs e)
+        {
+            LinkButton btn = (LinkButton)sender;
+            GridViewRow row = (GridViewRow)btn.NamingContainer;
+            indiceConsultado = Convert.ToInt32(row.RowIndex);
+            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "none", "<script>$('#modalAdjudicar').modal('show');</script>", false);
         }
 
         public void clickAdjudicar(object sender, EventArgs e)
         {
-            LinkButton btn = (LinkButton)sender;
-            GridViewRow row = (GridViewRow)btn.NamingContainer;
-            int i = Convert.ToInt32(row.RowIndex);
-            controladora.adjudicarNumeral(idsConsultados[i], personaConsultada, txtConstancia.Value, txtFecha.Value);
+            controladora.adjudicarNumeral(idsConsultados[indiceConsultado], personaConsultada, txtConstancia.Value, txtFecha.Value);
         }
 
         public void clickCancelar(object sender, EventArgs e)
@@ -77,15 +100,15 @@ namespace ProyectoVD
             Response.Redirect("/Inicio");
         }
 
-        protected void fechaDeEntradaCalendario_SelectionChanged(object sender, EventArgs e)
+        public void clickInsertarPersona(object sender, EventArgs e)
         {
-            txtFecha.Value = fechaDeEntradaCalendario.SelectedDate.ToString("MM/dd/yyyy");
-            fechaDeEntradaCalendario.Visible = false;
+            estado = 3;
+            Response.Redirect("Personas");
         }
 
-        protected void fechaDeEntrada_ServerClick(object sender, EventArgs e)
+        public void limpiarEstado()
         {
-            fechaDeEntradaCalendario.Visible = !fechaDeEntradaCalendario.Visible;
+            estado = 0;
         }
     }
 }

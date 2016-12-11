@@ -69,7 +69,7 @@
                         <button type="button" id="btnGuardar" runat="server" onserverclick="clickGuardar" class="form-control" style="background-color: forestgreen; color: white">Guardar</button>
                     </div>
                     <div class="col-xs-6 col-md-4">
-                        <button type="button" id="btnGuardarAsociar" runat="server" class="form-control" style="background-color: forestgreen; color: white">Guardar y Asociar Numerales</button>
+                        <button type="button" id="btnGuardarAsociar" runat="server" onserverclick="clickGuardarAsociar" class="form-control" style="background-color: forestgreen; color: white">Guardar y Asociar Numerales</button>
                     </div>
                     <div class="col-xs-6 col-md-4">
                         <button type="button" id="btnCancelar" runat="server" class="form-control" data-toggle="modal" data-target="#modalcancelar" style="background-color: red; color: white">Cancelar</button>

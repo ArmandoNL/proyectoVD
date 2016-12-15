@@ -54,11 +54,11 @@ namespace ProyectoVD
 
             if (rdbUAyC.Checked)
             {
-               resp = controladoraBDnumeral.reporteUAyConcurso(int.Parse(unidades.Rows[cbxUA2.SelectedIndex - 1][0].ToString()), txtConcurso1.Value);
+               resp = controladoraBDnumeral.reporteUAyConcurso(int.Parse(unidades.Rows[cbxUA1.SelectedIndex - 1][0].ToString()), txtConcurso1.Value);
             }
             else if (rdbUAyA.Checked)
             {
-                resp = controladoraBDnumeral.reporteUAyAnno(int.Parse(unidades.Rows[cbxUA2.SelectedIndex - 1][0].ToString()), txtConcurso1.Value);
+                resp = controladoraBDnumeral.reporteUAyAnno(int.Parse(unidades.Rows[cbxUA1.SelectedIndex - 1][0].ToString()), txtConcurso1.Value);
             }
             else
             {
@@ -79,10 +79,37 @@ namespace ProyectoVD
         }
         public void clickBuscar2(object sender, EventArgs e)
         {
+
+            txtOfrecido.Visible = false;
+            txtAdjudicado.Visible = false;
+            txtNoAdjudicado.Visible = false;
+            txtEnEspera.Visible = false;
+            lblOfrecido.Visible = false;
+            lblAdjudicado.Visible = false;
+            lblNoAdjudicado.Visible = false;
+            lblEnEspera.Visible = false;
+
             DataTable tabla = controladoraBDnumeral.reportePersonas(txtConcurso2.Value, int.Parse(unidades.Rows[cbxUA2.SelectedIndex - 1][0].ToString()));
             grvReporte.DataSource = tabla;
             grvReporte.DataBind();
+            
         }
 
+
+        public void clickChecked(object sender, EventArgs e)
+        {
+            txtConcurso1.Value = "";
+            txtAnno.Value = "";
+        }
+
+
+        protected void mostrarMensaje(String tipoAlerta, String alerta, String mensaje)
+        {
+            alertAlerta.Attributes["class"] = "alert alert-" + tipoAlerta + " alert-dismissable fade in";
+            labelTipoAlerta.Text = alerta + " ";
+            labelAlerta.Text = mensaje;
+            alertAlerta.Attributes.Remove("hidden");
+            this.SetFocus(alertAlerta);
+        }
     }
 }

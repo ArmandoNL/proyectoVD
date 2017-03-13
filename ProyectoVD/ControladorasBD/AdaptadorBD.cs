@@ -13,8 +13,8 @@ namespace ProyectoVD
         // C#
         public void conectar()
         {
-            String conexion = "Data Source=DESKTOP-J7O6L7T\\ARMANDO; Initial Catalog=ProyectoVD; Integrated Security = SSPI";
-            //String conexion = "Data Source=localhost; Initial Catalog=ProyectoVD; user id= armando ; password= Mamiester12";
+            //String conexion = "Data Source=10.3.18.46; Initial Catalog=Concursos; Integrated Security = SSPI";
+            String conexion = "Data Source=10.3.18.46; Initial Catalog=Concursos; user id= Armando ; password= armando11";
             //conn.ConnectionString = "Server=tcp:xrk60dol8s.database.windows.net,1433;Database=codigosDS;User " +
             //"ID=armando@xrk60dol8s;Password=Mamiester12;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;";
             conn = new SqlConnection(conexion);

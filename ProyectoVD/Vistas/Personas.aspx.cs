@@ -55,7 +55,7 @@ namespace ProyectoVD
                     btnModificar.Disabled = false;
                     btnEliminar.Disabled = false;
                     break;
-                case 2://modificar un numeral
+                case 2://modificar un numerales
                     consultarPersona();
                     btnInsertar.Disabled = true;
                     btnModificar.Disabled = true;

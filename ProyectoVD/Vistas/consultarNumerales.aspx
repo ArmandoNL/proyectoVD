@@ -12,8 +12,6 @@
                         <p>
                             <input id="txtBuscar" type="text" class="form-control" runat="server" required="required" title="Por favor, inserte un concurso." />
                         </p>
-                        <p>
-                        </p>
                     </div>
                 </div>
             </div>
